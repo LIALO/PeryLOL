@@ -47,7 +47,7 @@ public class Historial extends ActionBarActivity {
         //buscando el historial
         Conexion.get("https://lan.api.pvp.net/api/lol/lan/v1.3/game/by-summoner/" + invocador_id + "/recent?api_key=5dd8e058-3f90-4f1b-9e8f-be016dba394c", null, new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                //Aqui colocamos todo lo que passe cuando haya sido exitoso el json
+                //Aqui colocamo todo lo que passe cuando haya sido exitoso el json
                 //Log.i("Resultado",response+"");
                 nombreCampeon = "";
                 invocador.obtenerHistorial(response);
