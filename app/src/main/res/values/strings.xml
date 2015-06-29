@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pery LOL</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_perfil_invocador">Perfil de Invocador</string>
+    <string name="title_activity_historial">Historial</string>
+</resources>
