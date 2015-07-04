@@ -1,6 +1,8 @@
 package com.example.nabu.perylol.perylol_movil;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import com.example.nabu.perylol.perylol_movil.Modelos.Conexion;
 import com.example.nabu.perylol.perylol_movil.Modelos.Invocador;
 import com.example.nabu.perylol.perylol_movil.Modelos.Partida;
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -35,9 +39,14 @@ public class Historial extends ActionBarActivity {
     Invocador invocador = new Invocador();
     public String nombreCampeon;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
+
+        // Loader image - will be shown before loading image
+        final int loader = R.drawable.champion;
+
 
         //inflando la pantalla
         contenedor_historial = (ViewGroup) findViewById(R.id.historial_historial);
@@ -54,7 +63,6 @@ public class Historial extends ActionBarActivity {
                 for (int i = 0; i< invocador.getPartidas().size();i++){
                     Partida part = invocador.getPartidas().get(i);
 
-
                     //Log.i("partida No #",i+"");
                     //inflando el layout :v
                     LayoutInflater inflacion = LayoutInflater.from(Historial.this);
@@ -63,34 +71,32 @@ public class Historial extends ActionBarActivity {
                     //llenamos con los datos
                     //creamos los wigyet para llenarlos
                     TextView resultado = (TextView) historial.findViewById(R.id.historial_resultado);
-                    final TextView campeon = (TextView) historial.findViewById(R.id.historial_campeon);
+                    //final TextView campeon = (TextView) historial.findViewById(R.id.historial_campeon);
                     final ImageView campeonimg = (ImageView)historial.findViewById(R.id.historial_campeonImg);
                     final LinearLayout llResultado = (LinearLayout)findViewById(R.id.ll_resultado_historial);
                     TextView kill = (TextView) historial.findViewById(R.id.historial_kill);
                     TextView assists = (TextView) historial.findViewById(R.id.historial_assists);
                     TextView dead = (TextView) historial.findViewById(R.id.historial_dead);
-                    final TextView item1 = (TextView) historial.findViewById(R.id.historial_item1);
-                    final TextView item2 = (TextView) historial.findViewById(R.id.historial_item2);
-                    final TextView item3 = (TextView) historial.findViewById(R.id.historial_item3);
-                    final TextView item4 = (TextView) historial.findViewById(R.id.historial_item4);
-                    final TextView item5 = (TextView) historial.findViewById(R.id.historial_item5);
-                    final TextView item6 = (TextView) historial.findViewById(R.id.historial_item6);
+
                     final ImageView ivitem1 = (ImageView)historial.findViewById(R.id.IVitem1);
                     final ImageView ivitem2 = (ImageView)historial.findViewById(R.id.IVitem2);
                     final ImageView ivitem3 = (ImageView)historial.findViewById(R.id.IVitem3);
                     final ImageView ivitem4 = (ImageView)historial.findViewById(R.id.IVitem4);
                     final ImageView ivitem5 = (ImageView)historial.findViewById(R.id.IVitem5);
                     final ImageView ivitem6 = (ImageView)historial.findViewById(R.id.IVitem6);
+                    final ImageView spell1 = (ImageView)historial.findViewById(R.id.h_spells1);
+                    final ImageView spell2 = (ImageView)historial.findViewById(R.id.h_spells2);
+                    final  String idItem = "";
                     //le damos valores a los textos con los datos que recojimos :v
                     if(invocador.getPartidas().get(i).isResultado())
                     {
                         resultado.setText("Victoria");
-                        resultado.setTextColor(Color.parseColor("#0283C4"));
+                        resultado.setTextColor(Color.parseColor("#1394d5"));
                     }
                     else
                     {
                         resultado.setText("Derrota");
-                        resultado.setTextColor(Color.parseColor("#B40012"));
+                        resultado.setTextColor(Color.parseColor("#c31123"));
                     }
 
 
@@ -100,11 +106,28 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            campeon.setText(response.optString("name"));campeon.setTextColor(Color.parseColor("#F3D49E"));
+                           // campeon.setText(response.optString("name"));campeon.setTextColor(Color.parseColor("#F3D49E"));
                             String res = quitChar(response.optString("name"),"'");
                             campeonimg.setImageResource(quitSpaces(res));
                         }
                     });
+                    Conexion.get("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/summoner-spell/"+part.getSpell1()+"?locale=en_US&api_key=fe9d5d44-ed34-425c-95ad-f3813a96eb30",null,new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            String url_spells = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/spell/"+response.optString("key")+".png";
+                            UrlImageViewHelper.setUrlDrawable(spell1, url_spells);
+                        }
+                    });
+                    Conexion.get("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/summoner-spell/"+part.getSpell2()+"?locale=en_US&api_key=fe9d5d44-ed34-425c-95ad-f3813a96eb30",null,new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            String url_spells = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/spell/"+response.optString("key")+".png";
+                            UrlImageViewHelper.setUrlDrawable(spell2, url_spells);
+                        }
+                    });
+
+
+
 
                     //obteniendo el Item1
                     Conexion.get("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/item/"+part.getItem1()+"?api_key=5dd8e058-3f90-4f1b-9e8f-be016dba394c",null,new JsonHttpResponseHandler(){
@@ -112,31 +135,21 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            item1.setText(response.optString("name"));
-                            String res= stripAccents(response.optString("name"));
-                            res = quitChar(res,"\\(");
-                            res = quitChar(res,"\\)");
-                            res= quitChar(res,":");
 
-                            int id = quitSpaces(res);
-                            ivitem1.setImageResource(id);
-
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem1, image_url);
                         }
                     });
+
+
                     //obteniendo el Item2
                     Conexion.get("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/item/"+part.getItem2()+"?api_key=5dd8e058-3f90-4f1b-9e8f-be016dba394c",null,new JsonHttpResponseHandler(){
                         String nombre_campeon;
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            item2.setText(response.optString("name"));
-                            String res= stripAccents(response.optString("name"));
-                            res = quitChar(res,"\\(");
-                            res = quitChar(res,"\\)");
-                            res= quitChar(res,":");
-
-                            int id = quitSpaces(res);
-                            ivitem2.setImageResource(id);
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem2, image_url);
                         }
                     });
                     //obteniendo el Item3
@@ -145,14 +158,8 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            ivitem3.setImageResource(quitSpaces(stripAccents(response.optString("name"))));
-                            String res= stripAccents(response.optString("name"));
-                            res = quitChar(res,"\\(");
-                            res = quitChar(res,"\\)");
-                            res= quitChar(res,":");
-
-                            int id = quitSpaces(res);
-                            ivitem3.setImageResource(id);
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem3, image_url);
                         }
                     });
                     //obteniendo el Item4
@@ -161,8 +168,8 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            item4.setText(response.optString("name"));
-                            ivitem4.setImageResource(quitSpaces(stripAccents(response.optString("name"))));
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem4, image_url);
                         }
                     });
                     //obteniendo el Item5
@@ -171,8 +178,8 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            item5.setText(response.optString("name"));
-                            ivitem5.setImageResource(quitSpaces(stripAccents(response.optString("name"))));
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem5, image_url);
                         }
                     });
                     //obteniendo el Item6
@@ -181,13 +188,13 @@ public class Historial extends ActionBarActivity {
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            item6.setText(response.optString("name"));
-                            ivitem6.setImageResource(quitSpaces(stripAccents(response.optString("name"))));
+                            String image_url ="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+response.optString("id")+".png";
+                            UrlImageViewHelper.setUrlDrawable(ivitem6, image_url);
                         }
                     });
 
                     //llenando datos
-                    campeon.setText(part.getCampeon());
+                    //campeon.setText(part.getCampeon());
                     kill.setText(part.getKill());
                     assists.setText(part.getAssist());
                     dead.setText(part.getDead());

@@ -24,10 +24,6 @@ public class Invocador {
     private List<Partida> partidas;
 
 
-
-
-
-
     public Invocador() {
         this.rankerd = new ArrayList<Rankerd>();
         this.partidas = new ArrayList<Partida>();

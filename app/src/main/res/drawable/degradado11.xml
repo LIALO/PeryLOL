@@ -3,10 +3,13 @@
     <!-- Creamos el degradado añadiendo cada
              color hexagesimal dondo orresponda
              también se puede añadir un ángulo -->
-    <gradient android:startColor="#24170E"
-        android:centerColor="#35281F"
-        android:endColor="#24170E"
-        android:angle="-90" />
-    <corners android:radius="0dp" />
+    <gradient android:startColor="#E78F25"
+        android:centerColor="#F37828"
+        android:endColor="#B24C29"
+        android:type="radial"
+        android:gradientRadius="500"
+        android:angle="-90"
+        />
+    <corners android:radius="5dp" />
 
 </shape>

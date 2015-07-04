@@ -1,138 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/degradado4">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:padding="4dp">
+        android:padding="5dp"
+        android:background="@drawable/degradado1"
+        android:layout_margin="7dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:background="@drawable/degradado1">
+            android:layout_marginBottom="5dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
 
-                <ImageView
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:id="@+id/historial_campeonImg"
-                    android:layout_margin="3dp" />
-
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rengar"
-                    android:id="@+id/historial_campeon"
-                    android:textSize="17sp"
-                    android:padding="2dp" />
+                    android:layout_height="fill_parent">
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:id="@+id/historial_campeonImg"
+                        android:layout_margin="3dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/h_spells1"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="3dp" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/h_spells2" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:gravity="center_horizontal|top"
-                android:id="@+id/ll_resultado_historial">
+                android:gravity="center|top"
+                android:id="@+id/ll_resultado_historial"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Victoria"
                     android:id="@+id/historial_resultado"
-                    android:textSize="40sp" />
+                    android:textSize="40sp"
+                    android:typeface="serif" />
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:padding="3dp"
-                    android:layout_marginBottom="15dp">
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal">
 
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".34"
-                        android:padding="3dp"
-                        android:layout_gravity="bottom">
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kill"
+                            android:text="K"
                             android:id="@+id/textView2"
-                            android:textSize="15sp"
-                            android:layout_marginRight="5dp"
-                            android:textColor="#A06F47" />
+                            android:textSize="20sp"
+                            android:layout_marginRight="3dp"
+                            android:textColor="#F7D340" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:id="@+id/historial_kill"
-                            android:textSize="15sp"
-                            android:textColor="#F5D49E" />
+                            android:textSize="20sp"
+                            android:textColor="#Ffffff" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".32"
-                        android:padding="3dp"
-                        android:layout_gravity="bottom">
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dead"
+                            android:text="D"
                             android:id="@+id/textView4"
-                            android:textSize="15sp"
-                            android:layout_marginRight="5dp"
-                            android:textColor="#A06F47" />
+                            android:textSize="20sp"
+                            android:layout_marginRight="3dp"
+                            android:textColor="#F7D340" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:id="@+id/historial_dead"
-                            android:textSize="15sp"
-                            android:textColor="#F5D49E" />
+                            android:textSize="20sp"
+                            android:textColor="#Ffffff" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".25"
-                        android:padding="3dp"
-                        android:layout_gravity="bottom">
+                        android:layout_gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Assists"
+                            android:text="A"
                             android:id="@+id/textView7"
-                            android:textSize="15sp"
-                            android:layout_marginRight="5dp"
-                            android:textColor="#A06F47" />
+                            android:textSize="20sp"
+                            android:layout_marginRight="3dp"
+                            android:textColor="#F7D340" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:id="@+id/historial_assists"
-                            android:textSize="15sp"
-                            android:textColor="#F5D49E" />
+                            android:textSize="20sp"
+                            android:textColor="#Ffffff" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -144,99 +164,65 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
             style="@style/centrado">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="wrap_content"
+                android:gravity="left">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem1" />
+                    android:id="@+id/IVitem1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem2" />
+                    android:id="@+id/IVitem2"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem3" />
+                    android:id="@+id/IVitem3"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="wrap_content"
+                android:gravity="fill_horizontal|left"
+                android:layout_marginBottom="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem4" />
+                    android:id="@+id/IVitem4"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem5" />
+                    android:id="@+id/IVitem5"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/IVitem6" />
+                    android:id="@+id/IVitem6"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/degradado5" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/historial_item3"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="etr"
-                android:id="@+id/historial_item1"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/historial_item2"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/historial_item4"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/historial_item5"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/historial_item6"
-                style="@style/letraPequenia"
-                android:textSize="15sp" />
 
         </LinearLayout>
 
