@@ -8,52 +8,48 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal">
-        <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de Invocador"
+            android:id="@+id/textView"
+            android:layout_marginBottom="10dp"
+            android:textSize="26dp"
+            android:textColor="#CFBA6B"
+            android:layout_gravity="center_horizontal"
+            android:typeface="serif" />
+
+        <EditText
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
+            android:layout_height="55dp"
+            android:id="@+id/nombre_invocador"
+            android:text="PeryLoth"
+            android:gravity="center_horizontal"
+            android:textColor="#BA964F"
+            android:background="@drawable/degradado3"
+            android:textSize="27sp"
+            android:layout_gravity="center"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:typeface="sans"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre de Invocador"
-                android:id="@+id/textView"
-                android:layout_marginBottom="5dp"
-                android:textSize="25dp"
-                android:textColor="#CFBA6B"
-                android:layout_gravity="center_horizontal"
-                android:typeface="serif" />
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="55dp"
-                android:id="@+id/nombre_invocador"
-                android:text="PeryLoth"
-                android:gravity="center_horizontal"
-                android:textColor="#BA964F"
-                android:background="@drawable/degradado3"
-                android:textSize="25sp"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:typeface="sans"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Buscar"
-                android:id="@+id/button"
-                android:onClick="enviar"
-                android:background="@drawable/selector_boton1"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp"
-                android:typeface="serif"
-                android:layout_marginTop="7dp" />
-
-        </LinearLayout>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:id="@+id/button"
+            android:onClick="enviar"
+            android:background="@drawable/selector_boton1"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/tamano_letraPF"
+            android:typeface="serif"
+            android:layout_marginTop="7dp"
+            android:padding="10dp" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        style="@style/centrado">
+        style="@style/centrado"
+        android:background="@drawable/degradado3"
+        android:paddingBottom="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -14,30 +17,37 @@
             android:text="Ranker_solo_duo"
             android:id="@+id/tipo_ranker"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:typeface="serif" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Solo MID"
-            android:id="@+id/nombre_equipo" />
+            android:id="@+id/nombre_equipo"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:typeface="serif"
+            android:textIsSelectable="false" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_ranked_div" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pajaros de Sion"
-            android:id="@+id/nombre_liga" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bronce V"
-            android:id="@+id/liga_divicion" />
+            android:id="@+id/liga_divicion"
+            android:textSize="22sp"
+            android:textColor="#ffffff" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -49,13 +59,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Win"
-                    android:id="@+id/textView6" />
+                    android:id="@+id/textView6"
+                    android:textColor="#ffffff"
+                    android:typeface="sans"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:id="@+id/ganadas" />
+                    android:id="@+id/ganadas"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -68,13 +83,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="P L"
-                    android:id="@+id/niideaalgomas" />
+                    android:id="@+id/niideaalgomas"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:id="@+id/pl" />
+                    android:id="@+id/pl"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,14 +106,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Loss"
-                    android:id="@+id/dsdsdsd" />
+                    android:id="@+id/dsdsdsd"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
-                    android:id="@+id/perdidas" />
+                    android:id="@+id/perdidas"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
             </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/degradado5"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"></LinearLayout>
+
 </LinearLayout>
